@@ -1,0 +1,54 @@
+POST http://localhost:9080/register HTTP/1.1
+content-Type: application/json
+
+{
+  "username": "john_doe",
+  "password": "securepassword",
+  "email": "john@example.com",
+  "name": "John Doe",
+  "active": true
+}
+
+###
+POST http://localhost:9080/login HTTP/1.1
+content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "securepassword"
+}
+
+###
+GET http://localhost:9080/get_user_and_profile 
+content-Type: application/json
+
+{
+  "token": "fcab7ebcf080f3dc9519d6bbf075ba9146ef53bfff09c4e92d4cfb685e0c513c"
+}
+
+###
+POST http://localhost:9080/update_profile_data
+content-Type: application/json
+
+{
+  "token": "fcab7ebcf080f3dc9519d6bbf075ba9146ef53bfff09c4e92d4cfb685e0c513c",
+  "bio" : "",
+  "currentPost": "CTO",
+  "pastWork" : [
+    {
+      "company": "Microsoft",
+      "position": "CTO",
+      "years": "2+"
+    }
+  ],
+  "education" : [
+    {
+      "school" : "IIT",
+      "degree" : "B.Tech",
+      "fieldOfStudy" : "2015-2019"
+    }
+  ]
+}
+
+###
+GET http://localhost:9080/user/get_all_users
